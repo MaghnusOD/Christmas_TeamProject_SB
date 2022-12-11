@@ -6,15 +6,15 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import java.util.List;
+import java.util.ArrayList;
 
 @RestController
 @SpringBootApplication
 @RequestMapping(path = "api/ticket")
-public class Main {
+public class TicketApplication {
     public static void main(String[] args) {
 
-        SpringApplication.run(Main.class, args);
+        SpringApplication.run(TicketApplication.class, args);
 
         /*
         //List<TicketInfo> new_ticket = new ArrayList<>();
@@ -114,13 +114,14 @@ public class Main {
 
 
     @GetMapping
-    public String getTicketInfo(){
-        List<TicketInfo> tickets = List.of(
-                new TicketInfo("Morgan", "student", 23, "stand", "no", 4123456789012345l, "12/24", 451),
-                new TicketInfo("Joe", "Individual", 28, "sit", "Yes", 5123456789012345l, "11/23", 557),
-                new TicketInfo("joy", "FAMILY", 32, "stand", "YES", 6123456789012345l, "06/25", 332)
-        );
-        return tickets.toString();
+    public ArrayList<TicketInfo> getTicketInfo(){
+        ArrayList<TicketInfo> tickets = new ArrayList<>();
+
+        tickets.add(new TicketInfo("Morgan", "student", 23, "stand", "no", 4123456789012345l, "12/24", 451));
+        tickets.add(new TicketInfo("Joe", "Individual", 28, "sit", "Yes", 5123456789012345l, "11/23", 557));
+        tickets.add(new TicketInfo("joy", "FAMILY", 32, "stand", "YES", 6123456789012345l, "06/25", 332));
+
+        return tickets;
     }
 
 
